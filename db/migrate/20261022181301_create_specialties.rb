@@ -1,10 +1,10 @@
 class CreateSpecialties < ActiveRecord::Migration[8.1]
   def change
     create_table :specialties do |t|
-      t.string :name
-      t.text :description
-      t.integer :price_cents
-      t.boolean :active
+      t.string :name, null: false
+      t.text :description, null: false
+      t.integer :price_cents, null: false
+      t.boolean :active, default: true, null: false
 
       t.timestamps
     end
