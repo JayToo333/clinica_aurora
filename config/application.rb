@@ -23,6 +23,7 @@ module ClinicaAurora
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.time_zone = "America/Sao_Paulo"
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     #
