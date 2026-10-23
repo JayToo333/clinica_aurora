@@ -7,24 +7,19 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-count = 0
-
-Specialty.find[:name].each do
-  specialty_id = count + 1
-
-  specialty_id[1] = {
+specialty = Professional.find[specialty_id].each do
+    specialty[geral] = {
       description: "Atendimento geral",
       price_cents: 25000
-  }
+    }
 
-  specialty_id[2] = {
+    specialty[dermatologista] = {
       description: "Atendimento para condições da pele.",
       price_cents: 25000
-  }
+    }
 
-  specialty_id[3] = {
+    specialty[nutricionista] = {
       description: "Atendimento de alimentação",
       price_cents: 25000
-  }
-  end
+    }
 end
