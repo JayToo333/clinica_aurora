@@ -10,5 +10,6 @@ class CreateProfessionals < ActiveRecord::Migration[8.1]
       t.timestamps
     end
     add_index :professionals, :registration, unique: true
+    add_index :professionals, :specialty_id, unique: true
   end
 end
