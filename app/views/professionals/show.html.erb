@@ -1,0 +1,28 @@
+<h1><%= @professional.name %></h1>
+
+<p>
+  <strong>Especialidade:</strong>
+  <%= @professional.specialty.name %>
+</p>
+
+<h2>Sobre o profissional</h2>
+
+<p><%= @professional.bio %></p>
+
+<h2>Horários disponíveis</h2>
+
+<p>A consulta aos horários estará disponível em breve.</p>
+
+<p>
+  <strong>Preço da consulta:</strong>
+  <%= number_to_currency(
+    @professional.specialty.price_cents / 100.0,
+    unit: "R$ ",
+    separator: ",",
+    delimiter: "."
+  ) %>
+</p>
+
+<p>
+  <%= link_to "Voltar", professionals_path(specialty_id: params[:specialty_id]) %>
+</p>
