@@ -1,0 +1,10 @@
+<h1>Profissionais</h1>
+
+<% @professionals.each do |professional| %>
+    <h2><%= professional.name %></h2>
+    <p>
+        <strong>Especialidade:</strong>
+        <%= professional.specialty.name %>
+    </p>
+    <p><%= professional.bio %></p>
+<% end %>

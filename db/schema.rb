@@ -15,23 +15,22 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_22_184704) do
   enable_extension "pg_catalog.plpgsql"
 
   create_table "professionals", force: :cascade do |t|
-    t.integer "specialty_id"
-    t.string "name"
-    t.string "registration"
-    t.text "bio"
-    t.boolean "active"
+    t.integer "specialty_id", null: false
+    t.string "name", null: false
+    t.string "registration", null: false
+    t.text "bio", null: false
+    t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["registration"], name: "index_professionals_on_registration", unique: true
   end
 
   create_table "specialties", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.integer "price_cents"
-    t.boolean "active"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "price_cents", null: false
+    t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_specialties_on_name", unique: true
   end
 end
