@@ -7,11 +7,8 @@
 <%= form_with url: professionals_path, method: :get do %>
   <div>
     <%= label_tag :specialty_id, "Especialidade" %>
-    <%= select_tag :specialty_id,
-      options_from_collection_for_select(@specialties, :id, :name),
-      prompt: "Selecione uma especialidade",
-      required: true %>
+    <%= select_tag :specialty_id, options_from_collection_for_select(@specialties, :id, :name) %>
   </div>
 
-  <%= submit_tag "Buscar profissionais" %>
+  <%= submit_tag "Buscar" %>
 <% end %>

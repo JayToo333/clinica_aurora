@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @specialties = Specialty.all
+    @specialties = Specialty.where(active: true)
   end
 end
