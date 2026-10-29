@@ -7,3 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+num = 0
+
+name = [ "Geral", "Nutrição", "Dermatologista" ]
+description = [ "Atendimento geral para consultas.", "Atendimento de alimentação e orientação nutricional.", "Atendimento para condições da pele." ]
+price_cents = [ 12400, 25000, 40000 ]
+
+while num < name.length
+  Specialty.find_or_create_by!(name: name[num], description: description[num], price_cents: price_cents[num])
+  num += 1
+end
