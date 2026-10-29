@@ -7,13 +7,35 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+specialties = {
+  name: [
+    "testeeeeeee",
+    "Nutrição",
+    "Dermatologista"
+  ],
+
+  description: [
+    "Atendimento geral para consultas.",
+    "Atendimento de alimentação e orientação nutricional.",
+    "Atendimento para condições da pele."
+  ],
+
+  price_cents: [
+    12400,
+    25000,
+    40000
+  ]
+}
+
 num = 0
 
-name = [ "Geral", "Nutrição", "Dermatologista" ]
-description = [ "Atendimento geral para consultas.", "Atendimento de alimentação e orientação nutricional.", "Atendimento para condições da pele." ]
-price_cents = [ 12400, 25000, 40000 ]
+while num < specialties[:name].length
+  Specialty.find_or_create_by!(
+    name: specialties[:name][num]
+  ) do |specialty|
+    specialty.description = specialties[:description][num]
+    specialty.price_cents = specialties[:price_cents][num]
+  end
 
-while num < name.length
-  Specialty.find_or_create_by!(name: name[num], description: description[num], price_cents: price_cents[num])
   num += 1
 end
