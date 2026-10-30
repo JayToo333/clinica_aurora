@@ -4,4 +4,8 @@ class ProfessionalsController < ApplicationController
       @professionals = Professional.where(specialty_id: params[:specialty_id], active: true)
     end
   end
+
+  def show
+    @professional = Professional.where(active: true).find(params[:id])
+  end
 end

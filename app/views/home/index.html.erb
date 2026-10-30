@@ -2,13 +2,23 @@
 
 <p>Site em desenvolvimento, demonstração apenas!</p>
 
-<h2>Encontre seu profissional</h2>
+<h2>Encontre um atendimento</h2>
 
-<%= form_with url: professionals_path, method: :get do %>
-  <div>
-    <%= label_tag :specialty_id, "Especialidade" %>
-    <%= select_tag :specialty_id, options_from_collection_for_select(@specialties, :id, :name) %>
-  </div>
+<% @specialties.each do |specialty| %>
+  <p>  
+    <strong><%= specialty.name %></strong>
+  <p>
+  
+  <p>
+    <%= number_to_currency(
+      specialty.price_cents / 100.0,
+      unit: "R$ ",
+      separator: ",",
+      delimiter: "."
+    ) %>
+  <p>
 
-  <%= submit_tag "Buscar" %>
+  </p>
+    <%= link_to "Ver profissionais >", professionals_path(specialty_id: specialty[:id]) %>
+  </p>
 <% end %>
