@@ -1,24 +1,5 @@
-<h1>Clínica Aurora</h1>
+<%= render "intro" %>
 
-<p>Site em desenvolvimento, demonstração apenas!</p>
+<%= render "specialties" %>
 
-<h2>Encontre um atendimento</h2>
-
-<% @specialties.each do |specialty| %>
-  <p>  
-    <strong><%= specialty.name %></strong>
-  <p>
-  
-  <p>
-    <%= number_to_currency(
-      specialty.price_cents / 100.0,
-      unit: "R$ ",
-      separator: ",",
-      delimiter: "."
-    ) %>
-  <p>
-
-  </p>
-    <%= link_to "Ver profissionais >", professionals_path(specialty_id: specialty[:id]) %>
-  </p>
-<% end %>
+<%= render "contact" %>
