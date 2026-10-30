@@ -2,9 +2,15 @@
 
 <% @professionals.each do |professional| %>
     <h2><%= professional.name %></h2>
+    
     <p>
         <strong>Especialidade:</strong>
         <%= professional.specialty.name %>
     </p>
+    
     <p><%= professional.bio %></p>
+        
+    <%= link_to "Ver perfil e horários", professional_path(professional, specialty_id: params[:specialty_id]) %>
 <% end %>
+
+<p><%= link_to "Voltar", root_path %></p>
