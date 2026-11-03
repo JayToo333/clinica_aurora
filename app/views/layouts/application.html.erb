@@ -24,6 +24,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/public_navigation" %>
+    
+    <main>
+      <%= yield %>
+    </main>
+  
+    <%= render "shared/public_footer" %>
   </body>
 </html>
