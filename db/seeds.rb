@@ -68,16 +68,3 @@ while variables[:count] < professionals[:name].length
     variables[:id] = 0
   end
 end
-
-
-
-
-#  if variables[:id] == specialties[:name].length - 1
-##
-##     if variables[:id] == specialties[:name].length - 1
-##      variables[:id] = 0
-##
-##
-##  if variables[:id] == specialties[:name].length - 1
-##
-## while variables[:count] < professionals[:name].length
