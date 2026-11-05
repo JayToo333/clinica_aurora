@@ -7,35 +7,68 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+variables = {
+  id: 1,
+  count: 0
+}
+
 specialties = {
   name: [
-    "testeeeeeee",
+    "Geral",
     "Nutrição",
-    "Dermatologista"
+    "Dermatologia"
   ],
 
   description: [
     "Atendimento geral para consultas.",
     "Atendimento de alimentação e orientação nutricional.",
     "Atendimento para condições da pele."
-  ],
-
-  price_cents: [
-    12400,
-    25000,
-    40000
   ]
 }
 
-num = 0
+professionals = {
+  name: [
+    "Ana Carolina Mendes",
+    "Ricardo Almeida Santos",
+    "Mariana Costa Oliveira",
+    "Gabriel Ferreira Lima",
+    "Juliana Martins Ribeiro"
+  ],
 
-while num < specialties[:name].length
+  bio: [
+    "Profissional dedicado ao atendimento geral, prevenção de doenças e acompanhamento da saúde dos pacientes.",
+    "Profissional especializada em orientação alimentar, planejamento nutricional e promoção de hábitos saudáveis.",
+    "Profissional especializada em cuidados com a pele, prevenção e acompanhamento de condições dermatológicas."
+  ]
+}
+
+while variables[:id] <= specialties[:name].length
   Specialty.find_or_create_by!(
-    name: specialties[:name][num]
+    name: specialties[:name][variables[:id] - 1]
   ) do |specialty|
-    specialty.description = specialties[:description][num]
-    specialty.price_cents = specialties[:price_cents][num]
+    specialty.description = specialties[:description][variables[:id] - 1]
+    specialty.price_cents = (variables[:count] + 1) * 100
   end
 
-  num += 1
+  while variables[:count] < professionals[:name].length
+    Professional.find_or_create_by!(
+      registration: "REG-#{variables[:count] + 1}"
+    ) do |professional|
+      professional.name = professionals[:name][variables[:count]]
+      professional.bio = professionals[:bio][variables[:id] - 1]
+      professional.specialty_id = variables[:id]
+    end
+
+    if variables[:id] == specialties[:name].length
+      variables[:id] = 1
+    else
+      variables[:id] += 1
+    end
+
+    variables[:count] += 1
+  end
+
+  if variables[:count] == professionals[:name].length
+    variables[:id] = specialties[:name].length + 1
+  end
 end
