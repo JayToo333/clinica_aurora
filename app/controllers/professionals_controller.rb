@@ -1,4 +1,6 @@
 class ProfessionalsController < ApplicationController
+  allow_unauthenticated_access only: [ :index ]
+
   def index
     if params[:specialty_id].present?
       @professionals = Professional.where(specialty_id: params[:specialty_id], active: true)
