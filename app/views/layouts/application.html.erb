@@ -24,7 +24,13 @@
   </head>
 
   <body>
-    <%= render "shared/public_navigation" %>
+    <header>
+      <% if authenticated? %>
+        <%= render "shared/user_navigation" %>
+      <% else %>
+        <%= render "shared/public_navigation" %>
+      <% end %>
+    </header>
     
     <main>
       <%= yield %>

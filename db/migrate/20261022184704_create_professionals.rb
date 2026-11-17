@@ -1,7 +1,7 @@
 class CreateProfessionals < ActiveRecord::Migration[8.1]
   def change
     create_table :professionals do |t|
-      t.integer :specialty_id, null: false
+      t.references :specialty, null: false, foreign_key: true
       t.string :name, null: false
       t.string :registration, null: false
       t.text :bio, null: false
