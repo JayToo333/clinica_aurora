@@ -68,3 +68,5 @@ while variables[:count] < professionals[:name].length
     variables[:id] = 0
   end
 end
+
+# bin/rails db:migrate:reset

@@ -1,0 +1,10 @@
+<header>
+    <nav aria-label="Navegação principal">
+        <%= link_to "Clínica Aurora", root_path %>
+
+        <%= link_to "Contato", root_path(anchor: "contato") %>
+
+        <%= link_to "Perfil", edit_session_path %>
+        <%= link_to "Sair", session_path, data: { turbo_method: :delete } %>
+    </nav>
+</header>

@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_03_201007) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_08_180434) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
+  create_table "patient_profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "phone", null: false
+    t.date "birth_date", null: false
+    t.boolean "active", default: true, null: false
+    t.integer "access_token_version", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_patient_profiles_on_email", unique: true
+    t.index ["user_id"], name: "index_patient_profiles_on_user_id", unique: true
+  end
+
   create_table "professionals", force: :cascade do |t|
-    t.integer "specialty_id", null: false
+    t.bigint "specialty_id", null: false
     t.string "name", null: false
     t.string "registration", null: false
     t.text "bio", null: false
@@ -23,6 +37,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_03_201007) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["registration"], name: "index_professionals_on_registration", unique: true
+    t.index ["specialty_id"], name: "index_professionals_on_specialty_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -41,15 +56,20 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_03_201007) do
     t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_specialties_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email_address", null: false
+    t.string "email", null: false
     t.string "password_digest", null: false
+    t.integer "role", default: 0, null: false
+    t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email_address"], name: "index_users_on_email_address", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "patient_profiles", "users"
+  add_foreign_key "professionals", "specialties"
   add_foreign_key "sessions", "users"
 end
