@@ -35,15 +35,15 @@ O projeto busca aplicar práticas de desenvolvimento utilizadas em aplicações 
 ### Site público
 
 - [x] Página inicial e informações institucionais da clínica.
-- [ ] Catálogo de especialidades e respectivos preços.
-- [ ] Listagem e detalhes dos profissionais.
+- [x] Catálogo de especialidades e respectivos preços.
+- [x] Listagem e detalhes dos profissionais.
 - [ ] Consulta de horários disponíveis.
-- [ ] Informações de endereço, contato e funcionamento.
+- [x] Informações de endereço, contato e funcionamento.
 
 ### Autenticação e portal do paciente
 
-- [ ] Cadastro de pacientes.
-- [ ] Login, logout e recuperação de senha.
+- [x] Cadastro de pacientes.
+- [x] Login, logout e recuperação de senha.
 - [ ] Perfil do paciente.
 - [ ] Agendamento e cancelamento de consultas.
 - [ ] Visualização de consultas futuras e histórico.
